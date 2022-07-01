@@ -51,6 +51,54 @@
 5. create-react-app 패키지로 프로젝트 생성
     - 웹팩(webpack), 바벨(babel), 각종 설정을 한꺼번에 해줌
     - yarn create react-app hello-react
-6. 
 
+# JSX
+- react에서 컴포넌트 정의하기 위해 사용하는 문법
+- ES5기준
+- XML 비슷
+- JS의 확장문법을 이용
+- Webpack으로 실행전에 번들링(bundling, compile) 처리
+  - Babel로 JS코드로 번역
+- React버전 : 16.8
+- 최신버전 : 18.2.0
 
+# 컴포넌트
+- 함수형 컴포넌트
+  - 권장됨
+- 클래스형 컴포넌트
+
+# JSX문법
+1. 닫힌 Element만 입력가능
+  - 아래 tag는 Error
+  - <input> -> <input /> or <input></input>
+  - <img> -> <img /> or <img></img>
+  - <br> -> <br /> or <br></br>
+
+2. 반드시 부모 엘리먼트는 하나여야 한다. 감싸인 엘리먼트
+  ```JSX 
+  <div> // 부모 컴포넌트
+    <h1>리액트 안녕!</h1>
+    <h2>안녕하세요</h2>
+  </div>
+
+  <Fragment> // 부모 컴포넌트
+    <h1>리액트 안녕!</h1>
+    <h2>안녕하세요</h2>
+  </Fragment>
+
+  <> // 부모 컴포넌트
+    <h1>리액트 안녕!</h1>
+    <h2>안녕하세요</h2>
+  </>
+  ```
+
+3. JSX에서 JS표현을 실행시키고 싶으면
+  - {JS표현}
+  - {% 넌적스 표현 %}
+
+4. JSX에서 if문 사용 불가
+  - 삼항연산자 이용 -> ? : ;
+
+5. 조건부 랜더링
+  - AND(&&)
+  - 숫자 사용시 주의
