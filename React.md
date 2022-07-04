@@ -55,11 +55,11 @@
 # JSX
 - react에서 컴포넌트 정의하기 위해 사용하는 문법
 - ES5기준
-- XML 비슷
+- XML 비슷, 일반적인 HTML이 아님
 - JS의 확장문법을 이용
 - Webpack으로 실행전에 번들링(bundling, compile) 처리
   - Babel로 JS코드로 번역
-- React버전 : 16.8
+- React 학습 버전 : 16.8
 - 최신버전 : 18.2.0
 
 # 컴포넌트
@@ -68,11 +68,12 @@
 - 클래스형 컴포넌트
 
 # JSX문법
-1. 닫힌 Element만 입력가능
+1. 닫힌 Element만 입력가능 (XML문법 준수)
   - 아래 tag는 Error
   - <input> -> <input /> or <input></input>
   - <img> -> <img /> or <img></img>
   - <br> -> <br /> or <br></br>
+  - ...
 
 2. 반드시 부모 엘리먼트는 하나여야 한다. 감싸인 엘리먼트
   ```JSX 
@@ -102,3 +103,102 @@
 5. 조건부 랜더링
   - AND(&&)
   - 숫자 사용시 주의
+
+6. undefined 처리 : 렌더링 안함
+  - || (OR) 
+  - default 출력 처리
+
+7. 인라인 스타일 (CSS)
+  - 스타일 속성값 명칭 규칙
+    - CSS : background-color, font-size : snake_case
+    - React : backgroundColor, fontSize : camelCase
+  - JSON객체형식으로 스타일 지정
+
+8. class 속성이 아니라 className 속성명 사용
+  - <div class = 'form-input'> X -> <div className = 'formInput'> O
+
+9. 주석
+  - {* 주석입니다. *}
+
+* ESLint : JS 문법 검사 도구
+* Prettier : 코드 스타일 자동정리 도구
+* F1 or commend + shift + p 
+
+# Component
+- Class 형
+  - 자동완성 : rcc + enter
+  - Component를 상속받기
+  - render() 메서드 구현해야함
+  - render() 메서드의 반환 : JSX
+  - 특징
+    - state사용 가능, 라이플사이클 활용이 쉽다.
+    - 임의의 메소드를 정의할 수 있다.
+- Function 형 (함수형)
+  - 자동완성 : rsc + enter
+  - 임의의 함수를 정의해 사용 가능
+  - 장점
+    - 클래스보다 간편하게 선언(정의, 작성) 가능
+    - 사용메모리가 적다
+  - 단점
+    - state, 라이플사이클 사용이 어렵다. -> 리액트 16.8이후 Hooks기능으로 극복
+
+* this 객체
+  - function 키워드
+    - this : 자신이 소속되어 있는 객체
+```js
+  function BlackDog() {
+  this.name = '흰둥이';
+    return {
+      name: '검둥이',
+      bark:function(){
+        console.log(this.name + "멍멍") // 자신이 소속되어 있는 객체
+      }
+    }
+  }
+
+  const bDog = new BlackDog();
+  bDog.bark(); // 검둥이멍멍
+  bDog // {name: '검둥이', bark: ƒ}
+```
+  - 화살표 함수
+    - this : 자신이 소속된 외부객체의 인스턴스
+```js
+  function WhiteDog() {
+  this.name = '흰둥이';
+    return {
+      name: '검둥이',
+      bark: () => {
+        console.log(this.name + "멍멍") // 자신이 소속된 외부객체의 인스턴스
+      }
+    }
+  }
+
+  const wDog = new WhiteDog();
+  wDog.bark(); // 흰둥이멍멍
+  wDog // {name: '검둥이', bark: ƒ}
+```
+
+* 부모 컴퍼넌트, 자식 컴퍼넌트
+
+* props
+  - properties
+  - 속성
+  - 컴포넌트 정의시 속성도 정의할 수 있음
+  - ( 부모 컴포넌트 )에서 ( 자식 컴포넌트 )로 정보를 전달
+
+  - props의 유효성 검사
+    - https://github.com/facebook/prop-types
+    - propsTypes 지정하기
+    - isRequired 필수값
+    - defaultProp 지정하기
+    - children : 컴포넌트의 Content(내용) 참고
+
+```HTML
+<a 속성(attribute)> // 시작태그
+  Content // 내용
+</a> // 종료태그
+```
+
+* state
+  - 상태
+  - 컴포넌트내에서의 상태 변화(정보) 취급
