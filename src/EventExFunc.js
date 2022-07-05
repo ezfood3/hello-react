@@ -10,7 +10,7 @@ const EventExFunc = () => {
         placeholder="안아줘요"
         onChange={(e) => {
           // e : event객체, SyntheticBaseEvent객체
-          console.log(e);
+          // console.log(e);
           console.log(e.target.value);
         }}
       />
