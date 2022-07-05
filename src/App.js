@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import "./App.css";
 import MyCom from "./MyCom";
 import FuncMyCom from "./FuncMyCom";
+import StateComCls from "./StateComCls";
+import StateComFunc from "./StateComFunc";
+import EventExFunc from "./EventExFunc";
 
 class App extends Component {
   render() {
@@ -17,6 +20,9 @@ class App extends Component {
         <FuncMyCom name={name} age={test} gender="여" roomnum="606">
           ありがとうございます。
         </FuncMyCom>
+        <StateComCls></StateComCls>
+        <StateComFunc></StateComFunc>
+        <EventExFunc></EventExFunc>
       </>
     );
   }

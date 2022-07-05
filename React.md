@@ -202,3 +202,39 @@
 * state
   - 상태
   - 컴포넌트내에서의 상태 변화(정보) 취급
+  - 함수형, 클래스형
+  - 클래스형
+    - state: 객체처리, setState()
+  - 함수형
+    - Hooks(useHooks()) ( 16.8 이후 )
+    - 상태가 배열, 객체로 정의되는 경우
+      - 기존의 배열, 객체의 복사본을 만들고 수정부분만 업데이트 하여 수정
+
+* 객체의 복사본을
+  - const obj = {a:1,b:2,c:3}
+  - const copyObj = {...obj,b:44}
+  - console.log(obj); // {a: 1, b: 2, c: 3}
+  - console.log(copyObj); // {a: 1, b: 44, c: 3}
+
+* 배열의 복사
+  - map(), forEach(), reduce(), filter()
+
+# 이벤트 핸들링
+- 웹브라우저의 HTML엘리먼트의 이벤트와 인터페이스가 동일
+- 주의사항
+1. 이벤트이름 : 카멜표기법
+  - onclick (X) // 소문자
+  - onClick (O) // 대문자
+2. 이벤트핸들러 : 함수 또는 함수형태의 객체로 지정
+3. DOM 엘리먼트의 JSX 컴포넌트에서만 이벤트 설정 가능
+  - React에서 정의한 컴포넌트에서는 이벤트 설정을 우회적으로 해야 함
+  - <FunMyCom onClick={}></FunMyCom> : props로 해석함
+  - FunMyCom.js 내의 render처리시 <div onClick={props.onClick}></div>
+  - 참고 : https://ko.reactjs.org/docs/handling-events.html
+  - 주로 사용되는 이벤트
+    - onClick
+    - onKeyUp
+    - onMouseUp
+    - onMouseMove
+    - onMouseOver
+    - onChange

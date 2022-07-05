@@ -21,7 +21,7 @@ class MyCom extends Component {
           안녕하세요? 저는 {name} 이고, 학번은 {hakbun} 입니다. <br></br> 전공은{" "}
           {major}입니다.
         </div>
-        <h1>{children} 예아.</h1>
+        <h1>{children} 감사합니다. </h1>
       </>
     );
   }
