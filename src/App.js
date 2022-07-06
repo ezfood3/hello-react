@@ -5,6 +5,7 @@ import FuncMyCom from "./FuncMyCom";
 import StateComCls from "./StateComCls";
 import StateComFunc from "./StateComFunc";
 import EventExFunc from "./EventExFunc";
+import EventExCls from "./EventExCls";
 
 class App extends Component {
   render() {
@@ -23,6 +24,7 @@ class App extends Component {
         <StateComCls></StateComCls>
         <StateComFunc></StateComFunc>
         <EventExFunc></EventExFunc>
+        <EventExCls></EventExCls>
       </>
     );
   }

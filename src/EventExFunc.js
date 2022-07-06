@@ -1,9 +1,10 @@
 import React from "react";
 
 const EventExFunc = () => {
+  // JSX 문법
   return (
     <>
-      <h1>이벤트 연습</h1>
+      <h1>이벤트 연습 ( 함수형 )</h1>
       <input
         type="text"
         name="message"
