@@ -238,3 +238,14 @@
     - onMouseMove
     - onMouseOver
     - onChange
+
+# ref : DOM에 이름달기
+- HTML에서 id
+  - <div id="id"></div>
+- JSX에서 ref
+  - <TestCom ref="{}"></TestCom>
+
+# ref 사용하기
+1. 콜백함수 사용
+  - <input ref={(ref)=>{this.inputRef=ref;}}></input>
+2. createRef() 사용 ( React 내장 함수 )

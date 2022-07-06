@@ -8,7 +8,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   // 화면을 작성
   <React.StrictMode>
-    <App />
+    <App /> {/* App 컴포넌트 */}
   </React.StrictMode>
 ); // JSX 문법
 
