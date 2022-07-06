@@ -7,11 +7,7 @@ class ScrollBoxRef extends Component {
     this.box.scrollTop = scrollHeight - clientHeight;
     // this.box.scrollTop = clientHeight - scrollHeight;
   };
-  scrollBoxTop = () => {
-    const { scrollHeight, clientHeight } = this.box; // div태그의 속성값
 
-    this.box.scrollBottom = clientHeight - scrollHeight;
-  };
   render() {
     const style = {
       border: "1px solid black",

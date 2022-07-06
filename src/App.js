@@ -40,13 +40,6 @@ class App extends Component {
         >
           밑으로
         </button>
-        <button
-          onClick={(e) => {
-            this.scrollBox.scrollBoxTop();
-          }}
-        >
-          위로
-        </button>
         <ScrollBoxRef></ScrollBoxRef>
       </>
     );
