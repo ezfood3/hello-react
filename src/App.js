@@ -8,6 +8,7 @@ import EventExFunc from "./EventExFunc";
 import EventExCls from "./EventExCls";
 import ValidateExRef from "./ValidateExRef";
 import ScrollBoxRef from "./ScrollBoxRef";
+import MapTestComFunc from "./MapTestComFunc";
 
 class App extends Component {
   render() {
@@ -41,6 +42,7 @@ class App extends Component {
           밑으로
         </button>
         <ScrollBoxRef></ScrollBoxRef>
+        <MapTestComFunc></MapTestComFunc>
       </>
     );
   }
