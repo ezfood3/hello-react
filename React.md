@@ -231,6 +231,7 @@
   - <FunMyCom onClick={}></FunMyCom> : props로 해석함
   - FunMyCom.js 내의 render처리시 <div onClick={props.onClick}></div>
   - 참고 : https://ko.reactjs.org/docs/handling-events.html
+  - 참고 : https://facebook.github.io/react/docs/events.html
   - 주로 사용되는 이벤트
     - onClick
     - onKeyUp
