@@ -245,7 +245,14 @@
 - JSX에서 ref
   - <TestCom ref="{}"></TestCom>
 
-# ref 사용하기
+# ref 사용하기 : <input> 태그처럼 DOM 엘리먼트의 JSX객체
 1. 콜백함수 사용
   - <input ref={(ref)=>{this.inputRef=ref;}}></input>
+  - this.inputRef.focus();
+
 2. createRef() 사용 ( React 내장 함수 )
+  - inputRef = React.createRef(); 
+  - ref={this.inputRef} // input태그 안
+  - this.inputRef.current.focus();
+
+# ref사용하기 : 사용자 정의 컴포넌트에서 사용하기

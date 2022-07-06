@@ -7,6 +7,7 @@ import StateComFunc from "./StateComFunc";
 import EventExFunc from "./EventExFunc";
 import EventExCls from "./EventExCls";
 import ValidateExRef from "./ValidateExRef";
+import ScrollBoxRef from "./ScrollBoxRef";
 
 class App extends Component {
   render() {
@@ -27,6 +28,26 @@ class App extends Component {
         <EventExFunc></EventExFunc>
         <EventExCls></EventExCls>
         <ValidateExRef></ValidateExRef>
+        <ScrollBoxRef
+          ref={(ref) => {
+            this.scrollBox = ref;
+          }}
+        ></ScrollBoxRef>
+        <button
+          onClick={(e) => {
+            this.scrollBox.scrollBoxBottom();
+          }}
+        >
+          밑으로
+        </button>
+        <button
+          onClick={(e) => {
+            this.scrollBox.scrollBoxTop();
+          }}
+        >
+          위로
+        </button>
+        <ScrollBoxRef></ScrollBoxRef>
       </>
     );
   }
