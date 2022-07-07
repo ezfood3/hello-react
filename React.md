@@ -278,3 +278,103 @@ array.filter()
 - 배열
 - 객체
 - spread 연산자 [...], {...}
+
+# 라이플사이클 Life Cycle Method
+- 클래스형 컴포넌트
+- 함수형 컴포넌트 : Hooks로 처리
+- Will 접두사가 붙은 메서드는 어떤 작업을 작동하기 전에 실행되는 메서드
+- Did 접두사가 붙은 메서드는 어떤 작업을 작동한 후에 실행되는 메서드
+
+- Component Life
+  - 컴포넌트가 렌더링되기 전 준비과정 ~ 컴포넌트가 화면에서 사라질때까지
+
+- Life Cycle Method : 9가지
+- Component Life Cycle : 3가지 카테고리
+  - Mount
+    - 페이지에 컴포넌트가 나타남, DOM이 생성되고 웹 브라우저상에 나타나는 것
+    - constructor(props) : 컴포넌트를 새로 만들 때마다 호출되는 클래스 생성자 메서드
+    - getDerivedStateFromProps() : props에 있는 값으 state에 넣을 때 사용하는 메서드
+    - render() : 우리가 준비한 UI를 렌더링하는 메서드
+    - componentDidMount() : 컴포넌트가 웹 브라우저상에 나타난 후 호출하는 메서드 ( ex: (렌더링이 끝난 후) "환영합니다." )
+
+  - update
+    - 컴포넌트의 정보가 수정됨
+    - props가 바뀔 때 : 부모컴포넌트에서 데이터 수정이 있어서 props로 자식컴포넌트에 전달 할 때
+    - state가 바뀔 때 : setState()로 상태 수정시
+    - 부모 컴포넌트가 리렌더링될 때 
+    - this.focusUpdate로 강제로 렌더링을 트리거할 때
+
+    - 실행순서
+    - getDerivedStateFromProps()
+    - shouldComponentUpdate()
+    - render()
+    - getSnapshotBeforeUpdate()
+    - componentDidUpdate()
+
+  - unMount
+    - 페이지에서 컴포넌트가 사라짐
+    - componentWillUnmount()
+
+1. render()
+  - 필수로 구현해야 하는 메서드
+  - this.props, this.state를 메서드내에서 사용
+  - 반환값
+    - 리액트 요소를 반환 ( JSX 요소 )
+    - null or false : 화면 그리지 않음
+  - 주의사항
+    - setState() 사용하면 안됨 ( 이벤트 처리 함수 제외 )
+    - DOM 직접처리하면 안됨
+    - DOM 처리를 하려면 componentDidMount()에서 처리해야 함
+
+2. constructor(props)
+  - 컴포넌트가 생성될 때 : 메모리(힙)에 생성
+  - 컴포넌트의 생성자 메서드로 컴포넌트를 만들 때 처음으로 실행. 초기 state를 정할 수 있음.
+  - super(props) -> state 초기값 설정
+
+3. getDerivedStateFromProps()
+  - 리액트 16.3 이후 도입된 라이플사이클 메서드
+  - props의 값을 state로 동기화시킬때 사용
+  - Mount, Update시 호출됨
+  - static getDerivedStateFromProps(nextProps, PrevState){
+      if(nextProps.value !== prevState.value){ // 조건에 따라 특정 값 동기화
+        return { value : nextProps.value };
+      }
+      return null; // state를 변경할 필요가 없다면 null을 반환
+    }
+
+4. componentDidMount()
+  - 렌더링 완료했음을 의미
+  - JS라이브러리 호출, 프레임워크의 함수들 호출
+  - 이벤트 등록, axios호출, setTimeout, setInterval
+  - 네트워크 요청같은 비동기 작업 처리
+
+5. shouldComponentUpdate(nextProps, nextState)
+  - 반환값
+    - true : 컴포넌트 업데이트 함, 디폴트 값
+    - false : 업데이트 취소
+  - props, state 변경 -> 컴포넌트 업데이트 여부를 조절할 수 있는 메서드
+  - 성능 최적화를 위해 사용
+
+6. getSnapshotBeforeUpdate(prevProps, prevState)
+  - Snapshot : 업데이트전의 상태 정보 저장
+  - 리액트 16.3 이후
+  - render()에서 만들어지는 결과물이 브라우저에 반영되기 직전에 호출
+  - ex : 업데이트하여지지만 스크롤 위치를 유지하고자 할 때 사용
+  - 현재상태 : this.props, this.state
+  - 다음상태 : prevProps, prevState
+  - getSnapshotBeforeUpdate() 실행 결과는 componentDidUpdate()의 세번째 매개변수에서 확인가능
+
+7. componentDidUpdate(prevProps, prevState, snapshot)
+  - snapshot : getSnapshotBeforeUpdate()의 실행 결과
+  - 리렌더링 완료시 실행되는 메서드
+  - DOM관련 처리 가능
+
+8. componentWillUnmount()
+  - 컴포넌트가 DOM 트리에서 제거될 때 실행
+  - componentDidMount()에서 이벤트 등록, 타이머 등록 한 것을 제거할 수 있음
+
+9. componentDidCatch()
+  - 렌더리 중에 에러 발생시 호출되는 메서드
+
+엘리먼트 : 시작태그 ~ 종료태그
+content : 시작태그 ~ 종료태그 사이
