@@ -374,7 +374,7 @@ array.filter()
   - componentDidMount()에서 이벤트 등록, 타이머 등록 한 것을 제거할 수 있음
 
 9. componentDidCatch()
-  - 렌더리 중에 에러 발생시 호출되는 메서드
+  - 렌더링 중에 에러 발생시 호출되는 메서드
 
 엘리먼트 : 시작태그 ~ 종료태그
 content : 시작태그 ~ 종료태그 사이
