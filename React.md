@@ -378,3 +378,9 @@ array.filter()
 
 엘리먼트 : 시작태그 ~ 종료태그
 content : 시작태그 ~ 종료태그 사이
+
+# 프로젝트 생성
+yarn create react-app hello2-react
+npx create-react-app hello2-react
+
+cd /Users/donggeunlee/hooks-tutorial
