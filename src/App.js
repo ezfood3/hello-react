@@ -59,7 +59,7 @@ class App extends Component {
         <MapTestComFunc></MapTestComFunc>
         <IterateComFunc></IterateComFunc>
         <div>
-          <button onClick={this.onClick}>랜덤색상</button>
+          <button onClick={this.onClick}> 랜덤색상 </button>
           <ErrorLifeCycleCls>
             <LifeCycleCls color={this.state.color}></LifeCycleCls>
           </ErrorLifeCycleCls>
